@@ -1,0 +1,25 @@
+/* Estilo para el fondo de la página */
+body {
+    background: url('C:/Users/yazid/OneDrive/Escritorio/Reporte4_Grupo9/client/public/images/Fondo.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el cuadro de login */
+.login-container {
+    background-color: #f0f0f0; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px; 
+    margin: 0 auto;
+    width: 100%; 
+}
+
+/* Opcional: Estilo para el contenedor del logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
