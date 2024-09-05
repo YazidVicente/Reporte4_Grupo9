@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
 app.post('/register', (req, res) => {
     const { RegistroAcademico, Nombres, Apellidos, Contraseña, CorreoElectronico } = req.body;
 
-    // Verificar si el Registro Académico ya existe
+    // Verifica si el Registro Académico ya existe
     const checkRegistroSql = 'SELECT * FROM register WHERE RegistroAcademico = ?';
     db.query(checkRegistroSql, [RegistroAcademico], (err, data) => {
         if (err) {
@@ -54,7 +54,7 @@ app.post('/register', (req, res) => {
         if (data.length > 0) {
             return res.status(409).json('El Registro Académico ya existe');
         } else {
-            // Verificar si el Correo Electrónico ya existe
+            // Verifica si el Correo Electrónico ya existe
             const checkEmailSql = 'SELECT * FROM register WHERE CorreoElectronico = ?';
             db.query(checkEmailSql, [CorreoElectronico], (err, data) => {
                 if (err) {
@@ -65,7 +65,7 @@ app.post('/register', (req, res) => {
                 if (data.length > 0) {
                     return res.status(409).json('El Correo Electrónico ya existe');
                 } else {
-                    // Si ambos son únicos, proceder con la inserción
+                    // Si ambos son únicos, procede a agregar el usuario
                     const insertUserSql = 'INSERT INTO register (RegistroAcademico, Nombres, Apellidos, Contraseña, CorreoElectronico) VALUES (?, ?, ?, ?, ?)';
                     db.query(insertUserSql, [RegistroAcademico, Nombres, Apellidos, Contraseña, CorreoElectronico], (err, result) => {
                         if (err) {
